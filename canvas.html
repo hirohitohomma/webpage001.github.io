@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <meta http-equiv="Content-Style-Type" content="text/css">
+    <title></title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script type="text/javascript">
+        <!--
+        function sample() {
+            //描画コンテキストの取得
+            var canvas = document.getElementById('sample1');
+            if (canvas.getContext) {
+
+                var context = canvas.getContext('2d');
+
+                //左から20上から40の位置に、幅50高さ100の四角形を描く
+                context.fillRect(20, 40, 50, 100);
+
+                //色を指定する
+                context.strokeStyle = 'rgb(00,00,255)'; //枠線の色は青
+                context.fillStyle = 'rgb(255,00,00)'; //塗りつぶしの色は赤
+
+                //左から200上から80の位置に、幅100高さ50の四角の枠線を描く
+                context.strokeRect(200, 80, 100, 50);
+
+                //左から150上から75の位置に、半径60の半円を反時計回り（左回り）で描く
+                context.arc(150, 75, 60, Math.PI * 1, Math.PI * 2, true);
+                context.fill();
+
+            }
+        }
+        //
+
+        -->
+    </script>
+
+</head>
+
+<body onLoad="sample()">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <a href="index.html" class="navbar-brand">HOME</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navmenu1" aria-controls="navmenu1" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navmenu1">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="https://www.google.com/">Google</a>
+                <a class="nav-item nav-link" href="aoanime.html">アニメ</a>
+                <a class="nav-item nav-link" href="#"></a>
+            </div>
+        </div>
+    </nav>
+    <h2>canvasで図形を描く</h2>
+    <canvas id="sample1" style="background-color:yellow;">
+        図形を表示するには、canvasタグをサポートしたブラウザが必要です。
+    </canvas>
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.bundle.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
+</body>

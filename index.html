@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <title>KIHACHIの実験室</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        for () {
+            window.onload = function() {
+                setInterval(function() {
+                    var dd = new Date();
+                    document.getElementById("t3").innerHTML = dd.toLocaleString();
+                }, 1000);
+            }
+        }
+    </script>
+    <script>
+        <!--
+        myTotal = 0; // 現在の合計値
+        myInput = ""; // 現在入力している値
+        myCalc = "+"; // 合計と入力値の演算子
+        myFlg = 1; // １回前に入力したもの 0:数字 1:演算子
+
+        function myValue(myData) { // 0～9または小数点ボタンを押した
+            myFlg = 0; // １回前に入力したものは数値
+            myInput += myData; // 現在入力している値に追加
+            document.myForm.myLine.value = myInput; // 現在入力している値表示
+        }
+
+        function myCalculate(myData) { // 演算ボタンを押した
+            if (myFlg == 0) { // １回前に入力したものは数値か？
+                myFlg = 1; // １回前に入力したものは演算子
+                myWork = myTotal + myCalc + myInput; // 一連の計算式を作る
+                myTotal = eval(myWork); // 計算式を計算させる
+                myInput = ""; // 現在入力している値をクリア
+                document.myForm.myLine.value = myTotal; // 合計を表示
+            }
+            if (myData == "=") { // 演算ボタンは[＝]か？
+                myTotal = 0; // 合計をクリア
+                myCalc = "+"; // 演算子を[+]とする
+            } else { // 演算ボタンは[＝]以外である
+                myCalc = myData; // 演算子を退避させておく
+            }
+        }
+
+        function myC() { // クリアボタン[C]を押した
+            myTotal = 0; // 合計クリア
+            myCalc = "+"; // 演算子クリア
+            myInput = ""; // 現在入力している値をクリア
+            document.myForm.myLine.value = myTotal; // つまり、０を表示
+        }
+        // 
+        -->
+    </script>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <a href="index.html" class="navbar-brand">HOME</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navmenu1" aria-controls="navmenu1" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navmenu1">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="https://www.google.com/">Google</a>
+                <a class="nav-item nav-link" href="aoanime.html">アニメ</a>
+                <a class="nav-item nav-link" href="kuroe.html">アニメ２</a>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <div class="animation">
+            <div id="t3"></div>
+        </div>
+        <div class="d-flex justify-cotent-around">
+            <div class="container">
+                <div class="row justify-content-around">
+                    <div class="col-sm-4 order-1" id="google">
+                        <center>
+                            <h4>Google</h4>
+                        </center>
+                        <div id="newtab">
+                            <center><button onclick="newtab()">New Tab</button></center>
+                        </div><br>
+                        <div id="newwindow">
+                            <center><button onclick="newwindow()">New Window</button></center><br>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4 order-3" id="dentakuback">
+                        <center>
+                            <div id="dentaku">
+                                <form name="myForm">
+                                    <table border="1" bgcolor="#BDB76B">
+                                        <tr>
+                                            <td align="center" colspan="4" bgcolor="#d2691e">
+                                                <font color="#FFFFFF">
+                                                    <strong> 電　卓</strong>
+                                                </font>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="3"><input type="text" size="12" name="myLine" value="0"></td>
+                                            <td align="center"><input type="button" value="Ｃ" onclick="myC()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td align="center"><input type="button" value=" ７ " onclick="myValue(7)"></td>
+                                            <td align="center"><input type="button" value=" ８ " onclick="myValue(8)"></td>
+                                            <td align="center"><input type="button" value=" ９ " onclick="myValue(9)"></td>
+                                            <td align="center"><input type="button" value="÷" onclick="myCalculate('/')"></td>
+                                        </tr>
+                                        <tr>
+                                            <td align="center"><input type="button" value=" ４ " onclick="myValue(4)"></td>
+                                            <td align="center"><input type="button" value=" ５ " onclick="myValue(5)"></td>
+                                            <td align="center"><input type="button" value=" ６ " onclick="myValue(6)"></td>
+                                            <td align="center"><input type="button" value="×" onclick="myCalculate('*')"></td>
+                                        </tr>
+                                        <tr>
+                                            <td align="center"><input type="button" value=" １ " onclick="myValue(1)"></td>
+                                            <td align="center"><input type="button" value=" ２ " onclick="myValue(2)"></td>
+                                            <td align="center"><input type="button" value=" ３ " onclick="myValue(3)"></td>
+                                            <td align="center"><input type="button" value="－" onclick="myCalculate('-')"></td>
+                                        </tr>
+                                        <tr>
+                                            <td align="center"><input type="button" value=" ０ " onclick="myValue(0)"></td>
+                                            <td align="center"><input type="button" value=" ・ " onclick="myValue('.')"></td>
+                                            <td align="center"><input type="button" value=" ＋ " onclick="myCalculate('+')"></td>
+                                            <td align="center"><input type="button" value="＝" onclick="myCalculate('=')"></td>
+                                        </tr>
+                                    </table>
+                                </form>
+                            </div>
+                        </center>
+                    </div><br>
+                    <div class="col-sm-4 order-2" id="calenderback">
+
+                        <center>
+                            <div id="calendar">
+                                <script>
+                                    <!--
+                                    // ****************
+                                    //      下準備   
+                                    // ****************
+                                    myDate = new Date(); // 今日の日付データ取得
+                                    myWeekTbl = new Array("日", "月", "火", "水", "木", "金", "土"); // 曜日テーブル定義
+                                    myMonthTbl = new Array(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31); // 月テーブル定義
+                                    myYear = myDate.getFullYear(); // 年の取得
+                                    if (((myYear % 4) == 0 && (myYear % 100) != 0) || (myYear % 400) == 0) { // うるう年だったら...
+                                        myMonthTbl[1] = 29; // 　２月を２９日とする
+                                    }
+                                    myMonth = myDate.getMonth(); // 月を取得(0月～11月)
+                                    myToday = myDate.getDate(); // 今日の'日'を退避
+                                    myDate.setDate(1); // 日付を'１日'に変えて、
+                                    myWeek = myDate.getDay(); // 　'１日'の曜日を取得
+                                    myTblLine = Math.ceil((myWeek + myMonthTbl[myMonth]) / 7); // カレンダーの行数
+                                    myTable = new Array(7 * myTblLine); // 表のセル数分定義
+
+                                    for (i = 0; i < 7 * myTblLine; i++) myTable[i] = "　"; // myTableを掃除する
+                                    for (i = 0; i < myMonthTbl[myMonth]; i++) myTable[i + myWeek] = i + 1; // 日付を埋め込む
+
+                                    // ***********************
+                                    //      カレンダーの表示  
+                                    // ***********************
+                                    document.write("<table border='1'>"); // 表の作成開始
+                                    document.write("<tr><td colspan='7' bgcolor='#7fffd4'>"); // 見出し行セット
+                                    document.write("<strong>", myYear, "年", (myMonth + 1), "月カレンダー</strong>");
+                                    document.write("</td></tr>");
+
+                                    document.write("<tr>"); // 曜日見出しセット
+                                    for (i = 0; i < 7; i++) { // 一行(１週間)ループ
+                                        document.write("<td align='center' ");
+                                        if (i == 0) document.write("bgcolor='#fa8072'>"); // 日曜のセルの色
+                                        else document.write("bgcolor='#ffebcd'>"); // 月～土のセルの色
+                                        document.write("<strong>", myWeekTbl[i], "</strong>"); // '日'から'土'の表示
+                                        document.write("</td>");
+                                    }
+                                    document.write("</tr>");
+
+
+                                    for (i = 0; i < myTblLine; i++) { // 表の「行」のループ
+                                        document.write("<tr>"); // 行の開始
+                                        for (j = 0; j < 7; j++) { // 表の「列」のループ
+                                            document.write("<td align='center' "); // 列(セル)の作成
+                                            myDat = myTable[j + (i * 7)]; // 書きこむ内容の取得
+                                            if (myDat == myToday) document.write("bgcolor='#00ffff'>"); // 今日のセルの色
+                                            else if (j == 0) document.write("bgcolor='#ffb6c1'>"); // 日曜のセルの色
+                                            else document.write("bgcolor='#ffffe0'>"); // 平日のセルの色
+                                            document.write("<strong>", myDat, "</strong>"); // 日付セット
+                                            document.write("</td>"); // 列(セル)の終わり
+                                        }
+                                        document.write("</tr>"); // 行の終わり
+                                    }
+                                    document.write("</table>"); // 表の終わり
+
+
+                                    // 
+                                    -->
+                                </script>
+                            </div>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12" id="ao">
+                    <h3>アニメを見たい？</h3>
+                </div>
+            </div>
+        </div>
+        <div id="btnback">
+            <a class="btn btn-primary" href="aoanime.html" role="button">見る</a>
+        </div>
+        <!--新しいタブ、Windowでリンクを開く-->
+        <script>
+            var window_A, window_B;
+
+            function newtab() {
+                window_A = window.open("https://www.google.com", "google");
+            }
+
+            function newwindow() {
+                window_B = window.open("https://www.google.com", "google", "width=500,height=500");
+            }
+        </script>
+    </main>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.bundle.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
+</body></html>
